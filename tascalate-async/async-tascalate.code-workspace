@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "java",
+				"name": "Launch Application",
+				"request": "launch",
+				"mainClass": "io.corenext.async.Application",
+				"projectName": "test",
+				"console": "internalConsole",
+				"internalConsoleOptions": "openOnSessionStart",
+				"presentation": {
+					"hidden": false,
+					"group": "",
+					"order": 1
+				}
+			}
+		]
+	}
+}

@@ -97,15 +97,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.github.vipcxj</groupId>
-			<artifactId>jasync-core-java9</artifactId>
-			<version>0.1.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.github.vipcxj</groupId>
-			<artifactId>jasync-reactive</artifactId>
-			<version>0.1.0</version>
+			<groupId>net.tascalate.async</groupId>
+			<artifactId>net.tascalate.async.runtime</artifactId>
+			<version>1.1.0</version>
 		</dependency>
 	</dependencies>
 
@@ -124,11 +118,11 @@
 					<useIncrementalCompilation>true</useIncrementalCompilation>
 
 					<annotationProcessorPaths combine.children="append">
-						<path>
+						<!-- <path>
 							<groupId>io.github.vipcxj</groupId>
 							<artifactId>jasync-core-java9</artifactId>
-							<version>0.1.1</version>
-						</path>
+							<version>0.1.2</version>
+						</path> -->
 						<path>
 							<groupId>io.micronaut</groupId>
 							<artifactId>micronaut-http-validation</artifactId>
@@ -145,6 +139,33 @@
 						<arg>-Amicronaut.processing.module=test</arg>
 					</compilerArgs>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>net.tascalate.async</groupId>
+				<artifactId>net.tascalate.async.tools.maven</artifactId>
+				<version>1.1.0</version>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>tascalate-async-enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>net.tascalate.javaflow</groupId>
+				<artifactId>net.tascalate.javaflow.tools.maven</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>javaflow-enhance</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
